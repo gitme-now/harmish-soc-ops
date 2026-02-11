@@ -6,7 +6,7 @@
 
 **Turn awkward mixers into engaging conversations**
 
-Find people who match the prompts · Mark your card · Get 5 in a row to win!
+Find people who match the prompts · Mark your card · Get 5 in a row to win!!!!
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Built with React](https://img.shields.io/badge/React-19-61dafb?logo=react)](https://react.dev)
