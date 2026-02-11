@@ -3,9 +3,10 @@ import { ThemeToggle } from './ThemeToggle'
 
 interface StartScreenHeroProps {
   onStart: () => void;
+  onOpenCardDeck?: () => void;
 }
 
-export function StartScreenHero({ onStart }: StartScreenHeroProps) {
+export function StartScreenHero({ onStart, onOpenCardDeck }: StartScreenHeroProps) {
   const [showModal, setShowModal] = useState(false)
 
   // Handle Escape key to close modal
@@ -51,13 +52,21 @@ export function StartScreenHero({ onStart }: StartScreenHeroProps) {
           <ThemeToggle />
         </div>
 
-        {/* CTA Button */}
-        <button
-          onClick={onStart}
-          className="bg-cloud-accent text-cloud-ink font-semibold py-4 px-10 rounded-xl text-xl shadow-lg hover:shadow-xl active:bg-cloud-accent-light transition-all card-focus"
-        >
-          Start Playing
-        </button>
+        {/* CTA Buttons */}
+        <div className="flex flex-col items-center gap-3">
+          <button
+            onClick={onStart}
+            className="bg-cloud-accent text-cloud-ink font-semibold py-4 px-10 rounded-xl text-xl shadow-lg hover:shadow-xl active:bg-cloud-accent-light transition-all card-focus"
+          >
+            Start Playing
+          </button>
+          <button
+            onClick={() => onOpenCardDeck && onOpenCardDeck()}
+            className="text-cloud-ink/80 hover:text-cloud-ink underline underline-offset-2 text-sm card-focus"
+          >
+            Card Deck Shuffle
+          </button>
+        </div>
       </div>
 
       {/* Compact How to Play Card */}
