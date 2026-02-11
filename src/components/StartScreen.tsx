@@ -24,17 +24,17 @@ export function StartScreen({ onStart }: StartScreenProps) {
             <p className="text-cloud-ink/80">Break the ice with fun prompts — find team members who match the cards and mark them off. Ready?</p>
           </div>
 
-          <div className="md:hidden mb-4">
-            <ThemeToggle />
-          </div>
-
-          <div className="mt-2">
+          <div className="flex flex-col sm:flex-row gap-3 items-start">
             <button
               onClick={onStart}
-              className="w-full md:w-auto bg-cloud-accent text-cloud-ink font-semibold py-3 px-6 rounded-lg text-lg active:bg-cloud-accent-light transition-colors"
+              type="button"
+              className="w-full sm:w-auto bg-cloud-accent text-cloud-ink font-semibold py-3 px-6 rounded-lg text-lg active:bg-cloud-accent-light transition-colors focus:outline-none focus:ring-2 focus:ring-cloud-accent/50 focus:ring-offset-2"
             >
               Start Game
             </button>
+            <div className="md:hidden">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
 
