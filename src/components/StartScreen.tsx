@@ -1,5 +1,6 @@
 import { LandingCards } from './LandingCards'
 import { ThemeToggle } from './ThemeToggle'
+import { BoardPreview } from './BoardPreview'
 
 interface StartScreenProps {
   onStart: () => void;
@@ -8,7 +9,7 @@ interface StartScreenProps {
 export function StartScreen({ onStart }: StartScreenProps) {
   return (
     <div className="flex flex-col items-center justify-center min-h-full p-6 bg-cloud-base text-cloud-ink">
-      <div className="w-full max-w-3xl flex flex-col md:flex-row items-start gap-8">
+      <div className="w-full max-w-4xl flex flex-col md:flex-row items-start gap-8">
         <div className="flex-1 text-left">
           <div className="flex items-center justify-between mb-4">
             <div>
@@ -18,6 +19,11 @@ export function StartScreen({ onStart }: StartScreenProps) {
             <div className="hidden md:block">
               <ThemeToggle />
             </div>
+          </div>
+
+          {/* Board Preview - shown above copy on mobile */}
+          <div className="mb-6 md:hidden">
+            <BoardPreview />
           </div>
 
           <div className="mb-6">
@@ -38,7 +44,9 @@ export function StartScreen({ onStart }: StartScreenProps) {
           </div>
         </div>
 
-        <div className="w-full md:w-96">
+        {/* Right column on desktop: Board Preview + Landing Cards */}
+        <div className="hidden md:flex md:flex-col md:gap-6 w-full md:w-96">
+          <BoardPreview />
           <LandingCards />
         </div>
       </div>
