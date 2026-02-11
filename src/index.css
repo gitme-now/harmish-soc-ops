@@ -1,9 +1,18 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-accent: #2563eb;
-  --color-accent-light: #3b82f6;
-  --color-marked: #dcfce7;
+  --cloud-base: #F7FBFF;
+  --soft-sky: #CFE9FF;
+  --blush: #FFDDE6;
+  --lavender-mist: #E9E2FF;
+  --seafoam: #DFF7EA;
+  --peach-cloud: #FFE9D6;
+  --cloud-ink: #24303F;
+
+  /* legacy tokens kept for compatibility */
+  --color-accent: #CFE9FF;
+  --color-accent-light: #E9F4FF;
+  --color-marked: #DFF7EA;
   --color-marked-border: #22c55e;
   --color-bingo: #fbbf24;
 }
@@ -16,6 +25,43 @@ body,
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--cloud-ink);
+  background: var(--cloud-base);
   -webkit-tap-highlight-color: transparent;
 }
+
+/* Background utility for the soft pastel cloud gradient */
+.bg-cloud-gradient {
+  background-image: radial-gradient(circle at 10% 20%, var(--soft-sky) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, var(--lavender-mist) 0%, transparent 20%),
+    linear-gradient(180deg, var(--cloud-base), rgba(255,255,255,0));
+}
+
+/* Soft text/ink utility */
+.text-cloud-ink { color: var(--cloud-ink); }
+
+/* Button-friendly background variants */
+.bg-cloud-accent { background-color: var(--color-accent); }
+.bg-cloud-accent-light { background-color: var(--color-accent-light); }
+
+/* Floating cloud animations */
+@keyframes floatY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-cloud-slow { animation: floatY 18s ease-in-out infinite; }
+.animate-cloud-medium { animation: floatY 12s ease-in-out infinite; }
+.animate-cloud-slower { animation: floatY 24s ease-in-out infinite; }
+
+/* Helper font utility for headings */
+.font-poppins { font-family: 'Poppins', Inter, system-ui, sans-serif; }
+
+/* seafoam helpers for marked squares */
+.bg-seafoam { background-color: var(--seafoam); }
+.border-seafoam { border-color: var(--seafoam); }
+
+
+

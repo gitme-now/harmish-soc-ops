@@ -12,9 +12,9 @@ export function BingoSquare({ square, isWinning, onClick }: BingoSquareProps) {
 
   const stateClasses = square.isMarked
     ? isWinning
-      ? 'bg-amber-200 border-amber-400 text-amber-900'
-      : 'bg-marked border-marked-border text-green-800'
-    : 'bg-white text-gray-700 active:bg-gray-100';
+      ? 'bg-seafoam border-seafoam text-cloud-ink/90'
+      : 'bg-seafoam border-seafoam text-cloud-ink/80'
+    : 'bg-white text-cloud-ink/80 active:bg-gray-100';
 
   const freeSpaceClasses = square.isFreeSpace ? 'font-bold text-sm' : '';
 
@@ -28,7 +28,7 @@ export function BingoSquare({ square, isWinning, onClick }: BingoSquareProps) {
     >
       <span className="wrap-break-word hyphens-auto">{square.text}</span>
       {square.isMarked && !square.isFreeSpace && (
-        <span className="absolute top-0.5 right-0.5 text-green-600 text-xs">✓</span>
+        <span className="absolute top-0.5 right-0.5 text-cloud-ink text-xs">✓</span>
       )}
     </button>
   );
