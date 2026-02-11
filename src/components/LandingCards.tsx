@@ -18,10 +18,22 @@ export function LandingCards() {
     },
   ]
 
+  const handleToggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
+  const handleKeyDown = (event: React.KeyboardEvent, index: number) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      handleToggle(index)
+    }
+  }
+
   return (
-    <div className="w-full max-w-md mx-auto space-y-4">
+    <div className="w-full max-w-md mx-auto space-y-4" role="region" aria-label="Game information cards">
       {cards.map((c, i) => {
         const open = openIndex === i
+        const contentId = `card-content-${i}`
         return (
           <div
             key={c.title}
@@ -30,18 +42,22 @@ export function LandingCards() {
             }`}
           >
             <button
-              className="w-full text-left flex items-center justify-between space-x-4"
-              onClick={() => setOpenIndex(open ? null : i)}
+              className="w-full text-left flex items-center justify-between space-x-4 focus:outline-none focus:ring-2 focus:ring-cloud-accent/50 rounded-md p-2 -m-2"
+              onClick={() => handleToggle(i)}
+              onKeyDown={(e) => handleKeyDown(e, i)}
               aria-expanded={open}
+              aria-controls={contentId}
+              type="button"
             >
               <div>
                 <h3 className="text-lg font-semibold text-cloud-ink">{c.title}</h3>
                 <p className="text-sm text-cloud-ink/70 mt-1">{open ? 'Tap to collapse' : 'Tap to expand'}</p>
               </div>
-              <div className="flex-shrink-0 text-cloud-ink/60">{open ? '▾' : '▸'}</div>
+              <div className="flex-shrink-0 text-cloud-ink/60" aria-hidden="true">{open ? '▾' : '▸'}</div>
             </button>
 
             <div
+              id={contentId}
               className={`mt-3 text-sm text-cloud-ink/80 overflow-hidden ${open ? 'max-h-96' : 'max-h-0'} transition-[max-height] duration-300`}
               style={{ transitionTimingFunction: 'cubic-bezier(.2,.8,.2,1)' }}
               aria-hidden={!open}
