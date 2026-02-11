@@ -24,7 +24,7 @@ export function BoardPreview() {
 
   // Reuse styling patterns from BingoSquare
   const baseClasses =
-    'flex items-center justify-center p-1.5 text-center border border-gray-300 rounded transition-all duration-150 select-none min-h-[48px] text-[10px] leading-tight';
+    'relative flex items-center justify-center p-1.5 text-center border border-gray-300 rounded transition-all duration-150 select-none min-h-[48px] text-[10px] leading-tight';
 
   return (
     <div
@@ -52,7 +52,7 @@ export function BoardPreview() {
               key={index}
               className={`${baseClasses} ${stateClasses}`}
             >
-              <span className="wrap-break-word hyphens-auto">
+              <span className="break-words hyphens-auto">
                 {square.text}
               </span>
               {isMarked && (
