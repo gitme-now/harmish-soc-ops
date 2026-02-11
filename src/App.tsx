@@ -1,8 +1,8 @@
 import { useBingoGame } from './hooks/useBingoGame';
-import { StartScreen } from './components/StartScreen';
+import { StartScreenHero } from './components/StartScreenHero';
 import { GameScreen } from './components/GameScreen';
 import { BingoModal } from './components/BingoModal';
-import Background from './components/Background';
+import BackgroundHero from './components/BackgroundHero';
 
 function App() {
   const {
@@ -19,15 +19,15 @@ function App() {
   if (gameState === 'start') {
     return (
       <>
-        <Background />
-        <StartScreen onStart={startGame} />
+        <BackgroundHero variant="hero" />
+        <StartScreenHero onStart={startGame} />
       </>
     );
   }
 
   return (
     <>
-      <Background />
+      <BackgroundHero variant="default" />
       <GameScreen
         board={board}
         winningSquareIds={winningSquareIds}
