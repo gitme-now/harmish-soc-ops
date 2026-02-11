@@ -63,5 +63,36 @@ body {
 .bg-seafoam { background-color: var(--seafoam); }
 .border-seafoam { border-color: var(--seafoam); }
 
+/* Card utilities for landing cards */
+.card-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(207,233,255,0.25);
+}
+
+/* High contrast mode (simple) */
+:root[data-contrast='high'] {
+  --cloud-base: #ffffff;
+  --cloud-ink: #0b1220;
+  --color-accent: #91caff;
+}
+
+[data-contrast='high'] body {
+  background: var(--cloud-base);
+  color: var(--cloud-ink);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-cloud-slow,
+  .animate-cloud-medium,
+  .animate-cloud-slower,
+  .transition-colors,
+  .transition-transform,
+  .transition-[max-height] {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 
 
