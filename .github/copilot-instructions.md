@@ -1,3 +1,4 @@
+```instructions
 # Copilot / AI Agent Instructions — soc-ops
 
 Mandatory development checklist (run before committing):
@@ -16,3 +17,11 @@ Quick guide (essential, actionable):
 
 Want a storage migration example, further compression, or test results run? Tell me which.
 
+Design guide (visual + Tailwind): follow the frontend design notes in `.github/instructions/frontend-design.instructions.md` and the Tailwind v4 recommendations in `.github/instructions/tailwind-4.instructions.md`.
+- Color & typography: prefer neutral palettes, clear hierarchy, and legible sizes; avoid purple gradients unless the design brief permits them.
+- Components & layout: keep UI code under `src/components/*`; use design tokens and Tailwind utilities for consistency and reusability.
+- Responsiveness & motion: design mobile-first; use subtle, purposeful animations and respect reduced-motion preferences.
+- Accessibility: aim for WCAG AA — semantic HTML, visible focus styles, keyboard navigation, and contrast checks.
+- When changing visual tokens, Tailwind config, or component primitives, update this file and the frontend instructions with a short migration note.
+
+```
