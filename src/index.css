@@ -17,12 +17,18 @@
   --color-bingo: #fbbf24;
 }
 
+
 html,
 body,
 #root {
   height: 100%;
 }
 
+/**
+ * Defines base styling for the document body, setting default margin,
+ * font stack, text and background colors, and disabling tap highlight
+ * for a consistent global look and feel.
+ */
 body {
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -86,7 +92,10 @@ body {
   color: var(--cloud-ink);
 }
 
-/* Respect reduced motion */
+/**
+ * Respects the user's reduced-motion preference by disabling animations and
+ * transitions for specified classes and transition utilities to minimize motion.
+ */
 @media (prefers-reduced-motion: reduce) {
   .animate-cloud-slow,
   .animate-cloud-medium,
